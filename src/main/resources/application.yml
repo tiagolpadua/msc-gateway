@@ -6,11 +6,13 @@ spring:
     gateway:
       routes:
       - id: livro_service_route
-        uri: http://localhost:8080
+#        uri: http://localhost:8080
+        uri: lb://livro-service
         predicates:
         - Path=/livros
       - id: avalicacao_service_route
-        uri: http://localhost:8081
+#        uri: http://localhost:8081
+        uri: lb://avaliacao-service
         predicates:
         - Path=/avaliacoes
     config:
